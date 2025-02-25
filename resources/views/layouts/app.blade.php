@@ -23,9 +23,7 @@
         @component('componente', ['current' => $current])
         @endcomponent
         <main role="main">
-            @hasSection('body')
-                @yield('body')
-            @endif
+            @yield('content')
         </main>
     </div>
 

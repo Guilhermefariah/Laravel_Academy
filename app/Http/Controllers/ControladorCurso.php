@@ -13,7 +13,7 @@ class ControladorCurso extends Controller
     public function index()
     {
         $cursos = Curso::all();
-        return view('cursos', compact('cursos'));
+        return view('cursos.cursos', compact('cursos'));
     }
 
     /**
@@ -21,7 +21,7 @@ class ControladorCurso extends Controller
      */
     public function create()
     {
-        return view('novoCurso');
+        return view('cursos.novoCurso');
     }
 
     /**
@@ -29,8 +29,32 @@ class ControladorCurso extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'nome' => 'required|min:3|max:20',
+            'idade' => 'required|numeric',
+            'endereco' => 'required',
+            'email' => 'required|email|min:3|max:20|unique:cursos',
+        ],
+        [
+            'nome.required' => 'O campo nome é obrigatório',
+            'nome.min' => 'O campo nome deve ter no mínimo 3 caracteres',
+            'nome.max' => 'O campo nome deve ter no máximo 20 caracteres',
+            'idade.required' => 'O campo idade é obrigatório',
+            'idade.numeric' => 'O campo idade deve ser numérico',
+            'endereco.required' => 'O campo endereço é obrigatório',
+            'email.required' => 'O campo e-mail é obrigatório',
+            'email.email' => 'O campo e-mail deve ser válido',
+            'email.min' => 'O campo e-mail deve ter no mínimo 3 caracteres',
+            'email.max' => 'O campo e-mail deve ter no máximo 20 caracteres',
+            'email.unique' => 'O e-mail informado já existe',
+        ]);
+
         $curso = new Curso();
-        $curso->nome = $request->input('nomeCurso');
+        $curso->nome = $request->input('nome');
+        $curso->idade = $request->input('idade');
+        $curso->endereco = $request->input('endereco');
+        $curso->email = $request->input('email');
         $curso->save();
 
         return redirect('/cursos');
@@ -51,7 +75,7 @@ class ControladorCurso extends Controller
     {
         $cursos = Curso::find($id);
         if (isset($cursos)) {
-            return view('editarCurso', compact('cursos'));
+            return view('cursos.editarCurso', compact('cursos'));
         }
 
         return redirect('/cursos');

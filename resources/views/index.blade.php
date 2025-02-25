@@ -1,6 +1,6 @@
 @extends('layouts.app', ['current' => 'home'])
 
-@section('body')
+@section('content')
     <div class="container">
         <div class="row">
             <div class="card-group">

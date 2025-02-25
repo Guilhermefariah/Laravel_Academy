@@ -10,9 +10,6 @@
                 <a class="nav-link {{ $current == 'home' ? 'active' : '' }}" href="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ $current == 'alunos' ? 'active' : '' }}" href="/alunos">Alunos</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link {{ $current == 'cursos' ? 'active' : '' }}" href="/cursos">Cursos</a>
             </li>
         </ul>

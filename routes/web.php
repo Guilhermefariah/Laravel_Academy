@@ -19,8 +19,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/alunos', [ControladorAluno::class, 'index']);
-
 Route::get('/cursos', [ControladorCurso::class, 'index']);
 Route::get('/cursos/novo', [ControladorCurso::class, 'create']);
 Route::post('/cursos', [ControladorCurso::class, 'store']);
