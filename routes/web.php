@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ControladorAluno;
+use App\Http\Controllers\ControladorCurso;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/alunos', [ControladorAluno::class, 'index']);
+
+Route::get('/cursos', [ControladorCurso::class, 'index']);
+Route::get('/cursos/novo', [ControladorCurso::class, 'create']);
+Route::post('/cursos', [ControladorCurso::class, 'store']);
+Route::get('/cursos/apagar/{id}', [ControladorCurso::class, 'destroy']);
+Route::get('/cursos/editar/{id}', [ControladorCurso::class, 'edit']);
+Route::post('/cursos/{id}', [ControladorCurso::class, 'update']);
