@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\ControladorAluno;
-use App\Http\Controllers\ControladorCurso;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +21,11 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/cursos', [ControladorCurso::class, 'index']);
-Route::get('/cursos/novo', [ControladorCurso::class, 'create']);
-Route::post('/cursos', [ControladorCurso::class, 'store']);
-Route::get('/cursos/apagar/{id}', [ControladorCurso::class, 'destroy']);
-Route::get('/cursos/editar/{id}', [ControladorCurso::class, 'edit']);
-Route::post('/cursos/{id}', [ControladorCurso::class, 'update']);
+Route::get('/produtos', [ProdutoController::class, 'indexView']);
+
+Route::get('/cursos', [CursoController::class, 'index']);
+Route::get('/cursos/novo', [CursoController::class, 'create']);
+Route::post('/cursos', [CursoController::class, 'store']);
+Route::get('/cursos/apagar/{id}', [CursoController::class, 'destroy']);
+Route::get('/cursos/editar/{id}', [CursoController::class, 'edit']);
+Route::post('/cursos/{id}', [CursoController::class, 'update']);

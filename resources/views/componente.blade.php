@@ -10,6 +10,9 @@
                 <a class="nav-link {{ $current == 'home' ? 'active' : '' }}" href="/">Home</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link {{ $current == 'produtos' ? 'active' : '' }}" href="/produtos">Produtos</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{ $current == 'cursos' ? 'active' : '' }}" href="/cursos">Cursos</a>
             </li>
         </ul>

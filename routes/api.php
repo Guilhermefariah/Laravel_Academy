@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/cursos', [CursoController::class, 'indexJson']);
+
+
+Route::resource('/produtos', ProdutoController::class);

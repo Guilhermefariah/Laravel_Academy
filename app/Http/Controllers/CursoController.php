@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Curso;
 
-class ControladorCurso extends Controller
+class CursoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,17 +32,12 @@ class ControladorCurso extends Controller
 
         $request->validate([
             'nome' => 'required|min:3|max:20',
-            'idade' => 'required|numeric',
-            'endereco' => 'required',
             'email' => 'required|email|min:3|max:20|unique:cursos',
         ],
         [
             'nome.required' => 'O campo nome é obrigatório',
             'nome.min' => 'O campo nome deve ter no mínimo 3 caracteres',
             'nome.max' => 'O campo nome deve ter no máximo 20 caracteres',
-            'idade.required' => 'O campo idade é obrigatório',
-            'idade.numeric' => 'O campo idade deve ser numérico',
-            'endereco.required' => 'O campo endereço é obrigatório',
             'email.required' => 'O campo e-mail é obrigatório',
             'email.email' => 'O campo e-mail deve ser válido',
             'email.min' => 'O campo e-mail deve ter no mínimo 3 caracteres',
@@ -52,8 +47,6 @@ class ControladorCurso extends Controller
 
         $curso = new Curso();
         $curso->nome = $request->input('nome');
-        $curso->idade = $request->input('idade');
-        $curso->endereco = $request->input('endereco');
         $curso->email = $request->input('email');
         $curso->save();
 
@@ -106,5 +99,11 @@ class ControladorCurso extends Controller
         }
 
         return redirect('/cursos');
+    }
+
+    public function indexJson()
+    {
+        $cursos = Curso::all();
+        return json_encode($cursos);
     }
 }

@@ -13,8 +13,6 @@
                             <tr>
                                 <th scope="col">Código</th>
                                 <th scope="col">Nome</th>
-                                <th scope="col">Endereço</th>
-                                <th scope="col">Idade</th>
                                 <th scope="col">E-mail</th>
                                 <th scope="col">Ações</th>
                             </tr>
@@ -24,8 +22,6 @@
                                 <tr>
                                     <th scope="row">{{ $cursos->id }}</th>
                                     <td>{{ $cursos->nome }}</td>
-                                    <td>{{ $cursos->endereco }}</td>
-                                    <td>{{ $cursos->idade }}</td>
                                     <td>{{ $cursos->email }}</td>
                                     <td>
                                         <a href="/cursos/{{ $cursos->id }}/edit" class="btn btn-primary btn-sm">Editar</a>
