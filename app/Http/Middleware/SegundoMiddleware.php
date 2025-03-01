@@ -4,10 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Log;
+use Symfony\Component\HttpFoundation\Response;
 
-class PrimeiroMiddleware
+class SegundoMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,7 @@ class PrimeiroMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        Log::debug('Passou pelo primeiro middleware');
-        return response('Parando a chamada');
-        // return $next($request);
+        Log::debug('Passou pelo segundo middleware');
+        return $next($request);
     }
 }

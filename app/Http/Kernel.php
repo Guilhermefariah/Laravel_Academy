@@ -37,7 +37,8 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             
-            \App\Http\Middleware\PrimeiroMiddleware::class,
+            // \App\Http\Middleware\PrimeiroMiddleware::class,
+            // \App\Http\Middleware\SegundoMiddleware::class,
 
         ],
 
@@ -68,5 +69,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'primeiro' => \App\Http\Middleware\PrimeiroMiddleware::class,
+        'segundo' => \App\Http\Middleware\SegundoMiddleware::class,
     ];
 }
