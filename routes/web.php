@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\UsuarioControlador;
-use App\Http\Middleware\PrimeiroMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/usuarios', [UsuarioControlador::class, 'index'])
-    ->middleware(PrimeiroMiddleware::class);
+    ->middleware('primeiro');
