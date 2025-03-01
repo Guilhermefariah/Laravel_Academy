@@ -15,3 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/usuarios', [UsuarioControlador::class, 'index']);
+Route::get('/', function() {
+    return 'teste';
+});
