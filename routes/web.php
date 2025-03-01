@@ -18,14 +18,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
-
-Route::get('/produtos', [ProdutoController::class, 'indexView']);
-
-Route::get('/cursos', [CursoController::class, 'index']);
-Route::get('/cursos/novo', [CursoController::class, 'create']);
-Route::post('/cursos', [CursoController::class, 'store']);
-Route::get('/cursos/apagar/{id}', [CursoController::class, 'destroy']);
-Route::get('/cursos/editar/{id}', [CursoController::class, 'edit']);
-Route::post('/cursos/{id}', [CursoController::class, 'update']);
