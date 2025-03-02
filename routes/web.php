@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/usuarios', [UsuarioControlador::class, 'index'])
     ->middleware('primeiro', 'segundo');
+
+Route::get('/terceiro', function() {
+    return 'Passou pelo terceiro middleware';
+})->middleware('terceiro:joao,20');
