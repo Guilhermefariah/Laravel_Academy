@@ -16,7 +16,9 @@ class SegundoMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        Log::debug('Passou pelo segundo middleware');
-        return $next($request);
+        Log::debug('Passou pelo SegundoMiddleware ANTES');
+        $response =  $next($request);
+        Log::debug("Passou pelo SegundoMiddleware DEPOIS");
+        return $response;
     }
 }

@@ -16,8 +16,10 @@ class PrimeiroMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        Log::debug('Passou pelo primeiro middleware');
-        return response('Parando a chamada');
-        // return $next($request);
+        Log::debug('Passou pelo PrimeiroMiddleware ANTES');
+        // return response('Parando a chamada');
+        $response = $next($request);
+        Log::debug("Passou pelo PrimeiroMiddleware DEPOIS");
+        return response('Alterei a resposta', 201);
     }
 }
